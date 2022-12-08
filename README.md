@@ -1,25 +1,28 @@
 # Comp-7.2
 
-public static void main(String[] args) {
-      
-      
-        Address school = new Address("800 Lancaster Ave.", "Villanova", "PA", 19085);
-        Address jHome = new Address("21 Jump Street", "Blacksburg", "VA", 24551);
-        Student jake = new Student("Jake", "January", jHome, school, 95,55,100);
-        Address mHome = new Address("123 Main Street", "Euclid", "OH", 44132);
-        Student michael = new Student("Michael", "McGriddy", mHome, school,84.3,55,96);
+import java.util.ArrayList;
 
-		System.out.println(jake);
-		System.out.println();
-		System.out.println(michael);
-		System.out.println(michael.average());
-		Course math = new Course("math");
-		math.addStudent(michael);
-		math.addStudent(jake);
-		System.out.println(math.roll());
-		System.out.println(math.average());
-	}
-
-
-
+public class Course {
+    
+    private String course;
+	    static ArrayList<String> studentNames=new ArrayList<String>();
+	    static ArrayList<Student> student=new ArrayList<Student>();
+	    
+	    public Course(String course){
+	    	this.course=course;
+	    }
+	    public void addStudent(Student enroll){
+	        studentNames.add(enroll.getName());
+	        student.add(enroll);
+	    }
+	    public ArrayList roll(){
+	        return studentNames;
+	    }
+	    public int average(){
+	        int avg=0;
+	        for(Student tester:student){
+	            avg+=tester.average();
+	        }
+	        return avg/student.size();
+	    }
 }
