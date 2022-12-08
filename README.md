@@ -1,25 +1,33 @@
 # Comp-7.2
 
-public static void main(String[] args) {
-      
-      
-        Address school = new Address("800 Lancaster Ave.", "Villanova", "PA", 19085);
-        Address jHome = new Address("21 Jump Street", "Blacksburg", "VA", 24551);
-        Student jake = new Student("Jake", "January", jHome, school, 95,55,100);
-        Address mHome = new Address("123 Main Street", "Euclid", "OH", 44132);
-        Student michael = new Student("Michael", "McGriddy", mHome, school,84.3,55,96);
+public class Address {
+    
+    private String streetAddress, city, state;
+	   private long zipCode;
 
-		System.out.println(jake);
-		System.out.println();
-		System.out.println(michael);
-		System.out.println(michael.average());
-		Course math = new Course("math");
-		math.addStudent(michael);
-		math.addStudent(jake);
-		System.out.println(math.roll());
-		System.out.println(math.average());
-	}
+	   //-----------------------------------------------------------------
+	   //  Constructor: Sets up this address with the specified data.
+	   //-----------------------------------------------------------------
+	   public Address(String street, String town, String st, long zip)
+	   {
+	      streetAddress = street;
+	      city = town;
+	      state = st;
+	      zipCode = zip;
+	   }
 
+	   //-----------------------------------------------------------------
+	   //  Returns a description of this Address object.
+	   //-----------------------------------------------------------------
+	   public String toString()
+	   {
+	      String result;
+
+	      result = streetAddress + "\n";
+	      result += city + ", " + state + "  " + zipCode;
+
+	      return result;
+	   }
 
 
 }
